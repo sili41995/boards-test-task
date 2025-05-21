@@ -1,16 +1,15 @@
+import { FC } from 'react';
 import Section from '@/components/Section';
 import GeneralContainer from '@/components/GeneralContainer';
-import NotFound from '@/components/NotFound';
-import { FC } from 'react';
 
-const NotFoundPage: FC = () => {
+const BoardsPage: FC = () => {
   return (
     <Section>
       <GeneralContainer>
-        <NotFound />
+        <div>BoardsPage</div>
       </GeneralContainer>
     </Section>
   );
 };
 
-export default NotFoundPage;
+export default BoardsPage;

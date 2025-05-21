@@ -10,11 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "@tailwindcss/vite": "^4.1.7",
+    "framer-motion": "^12.12.1",
     "modern-normalize": "^2.0.0",
+    "postcss": "^8.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^6.1.6",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
