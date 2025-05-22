@@ -17,3 +17,6 @@ export const selectSignIn = (state: IAuthState) => state.signIn;
 export const selectRefreshUser = (state: IAuthState) => state.refreshUser;
 
 export const selectSignOut = (state: IAuthState) => state.signOut;
+
+export const selectChangeIsRefreshing = (state: IAuthState) =>
+  state.changeIsRefreshing;

@@ -11,18 +11,19 @@ const Navigation: FC<IProps> = ({ navLinks }) => {
 
   return (
     <nav>
-      <ul className='flex gap-5 w-full'>
+      <ul className='flex gap-5'>
         {navLinks.map(({ href, title }) => (
           <li key={href}>
             <NavLink
               to={href}
-              className={({ isActive }) => `
-                block min-w-[100px] px-3 py-3 rounded-md border border-white text-center 
-         font-sans text-base font-medium transition-colors duration-400 hover:text-[#38b6ff] hover:bg-white 
-         focus:text-[#38b6ff] focus:bg-white active:text-[#38b6ff] bg-${
-           isActive ? 'white' : 'transparent'
-         } text-${isActive ? '[#38b6ff]' : 'white'}
-              `}
+              className={({ isActive }) =>
+                [
+                  'block min-w-[100px] px-3 py-3 rounded-md border border-white text-center font-sans text-base font-medium transition-colors duration-400 hover:text-[#38b6ff] hover:bg-white focus:text-[#38b6ff] focus:bg-white active:text-[#38b6ff]',
+                  isActive
+                    ? 'text-[#38b6ff] bg-white'
+                    : 'text-white bg-transparent',
+                ].join(' ')
+              }
               onClick={onLinkClick}
             >
               {title}

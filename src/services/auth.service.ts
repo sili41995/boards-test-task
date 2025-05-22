@@ -13,7 +13,7 @@ class AuthService extends HttpService {
 
   async signUp(data: NewUser): Promise<IAuthRes> {
     const response = await this.post<IAuthRes, NewUser>({
-      url: 'sign-up',
+      url: 'auth/sign-up',
       data,
     });
 
@@ -22,7 +22,7 @@ class AuthService extends HttpService {
 
   async signIn(data: Credentials): Promise<IAuthRes> {
     const response = await this.post<IAuthRes, Credentials>({
-      url: 'sign-in',
+      url: 'auth/sign-in',
       data,
     });
 
@@ -30,8 +30,8 @@ class AuthService extends HttpService {
   }
 
   async signOut(): Promise<UserId> {
-    const response = await this.get<UserId>({
-      url: 'sign-out',
+    const response = await this.post<UserId, undefined>({
+      url: 'auth/sign-out',
     });
 
     return response.data;
@@ -39,7 +39,7 @@ class AuthService extends HttpService {
 
   async refreshUser(): Promise<IAuthRes> {
     const response = await this.get<IAuthRes>({
-      url: 'current',
+      url: 'auth/current',
     });
 
     return response.data;

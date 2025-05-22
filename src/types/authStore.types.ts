@@ -40,6 +40,7 @@ export interface IAuthState extends IAuthInitialState {
   signIn: (data: Credentials) => Promise<IAuthRes | undefined>;
   signOut: () => Promise<UserId | undefined>;
   refreshUser: () => Promise<IAuthRes | undefined>;
+  changeIsRefreshing: (data: boolean) => void;
 }
 
 export type SetAuthStateFunc = SetStateFunc<IAuthState>;
@@ -65,4 +66,8 @@ export interface ISignInOperationProps extends IAuthOperationProps {
 
 export interface ISignUpOperationProps extends IAuthOperationProps {
   data: NewUser;
+}
+
+export interface IChangeIsRefreshingProps extends IAuthOperationProps {
+  data: boolean;
 }

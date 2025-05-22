@@ -5,6 +5,7 @@ const enum PagePaths {
   boards = '/boards',
   tasks = '/tasks',
   addTask = 'add-task',
+  addBoard = 'add',
   dynamicParam = 'id',
 }
 

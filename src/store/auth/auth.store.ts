@@ -1,7 +1,13 @@
 import setState from '@/store/setState';
 import initialState from './initialState';
 import { LocalStorageKeys } from '@/constants';
-import { refreshUser, signIn, signUp, signOut } from './operations';
+import {
+  refreshUser,
+  signIn,
+  signUp,
+  signOut,
+  changeIsRefreshing,
+} from './operations';
 import {
   Credentials,
   GetAuthStateFunc,
@@ -25,6 +31,7 @@ const authSlice = (
   get: GetAuthStateFunc
 ): IAuthState => ({
   ...initialState,
+  isRefreshing: true,
   token: savedToken ?? null,
   signUp: async (data: NewUser): Promise<IAuthRes | undefined> =>
     await signUp({
@@ -47,6 +54,11 @@ const authSlice = (
   refreshUser: async (): Promise<IAuthRes | undefined> =>
     await refreshUser({
       set: setState({ set, name: 'refreshUser' }),
+    }),
+  changeIsRefreshing: (data: boolean): void =>
+    changeIsRefreshing({
+      set: setState({ set, name: 'changeIsRefreshing' }),
+      data,
     }),
 });
 

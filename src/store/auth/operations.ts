@@ -6,6 +6,7 @@ import {
   ISignInOperationProps,
   ISignUpOperationProps,
   UserId,
+  IChangeIsRefreshingProps,
 } from '@/types/authStore.types';
 import authService from '@/services/auth.service';
 import operationWrapper from './operationWrapper';
@@ -17,12 +18,13 @@ const signUpOperation = async ({
   const result = await authService.signUp(data);
 
   set({
-    token: result.token,
     user: {
       id: result.id,
       name: result.name,
       email: result.email,
     },
+    token: result.token,
+    isLoggedIn: true,
   });
 
   return result;
@@ -36,6 +38,7 @@ const signInOperation = async ({
 
   set({
     token: result.token,
+    isLoggedIn: true,
   });
 
   return result;
@@ -51,7 +54,7 @@ const signOutOperation = async ({
   return result;
 };
 
-const refreshUserOperation = async ({
+export const refreshUser = async ({
   set,
 }: IAuthOperationProps): Promise<IAuthRes | undefined> => {
   try {
@@ -78,7 +81,13 @@ const refreshUserOperation = async ({
   }
 };
 
+export const changeIsRefreshing = ({
+  set,
+  data,
+}: IChangeIsRefreshingProps): void => {
+  set({ isRefreshing: data });
+};
+
 export const signUp = operationWrapper(signUpOperation);
 export const signIn = operationWrapper(signInOperation);
 export const signOut = operationWrapper(signOutOperation);
-export const refreshUser = refreshUserOperation;
