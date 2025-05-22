@@ -10,7 +10,7 @@ const GoBackLink: FC = () => {
   return (
     <Link
       to={goBackPath}
-      className='inline-block h-full min-w-[200px] px-3 py-3 bg-[#808080] rounded-md border-none text-white text-center font-sans text-base font-medium transition-colors duration-400  hover:bg-[#555555] focus:bg-white'
+      className='self-start inline-block h-full min-w-[200px] px-3 py-3 bg-[#808080] rounded-md border-none text-white text-center font-sans text-base font-medium transition-colors duration-400  hover:bg-[#555555] focus:bg-white'
     >
       Go Back
     </Link>
