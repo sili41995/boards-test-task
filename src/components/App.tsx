@@ -7,13 +7,11 @@ import PublicRoute from '@/components/PublicRoute';
 const SignInPage = lazy(() => import('@/pages/SignInPage'));
 const SignUpPage = lazy(() => import('@/pages/SignUpPage'));
 const BoardsPage = lazy(() => import('@/pages/BoardsPage'));
-const BoardDetails = lazy(() => import('@/pages/BoardDetails'));
+const BoardDetailsPage = lazy(() => import('@/pages/BoardDetailsPage'));
 const TasksPage = lazy(() => import('@/pages/TasksPage'));
-const TaskDetails = lazy(() => import('@/pages/TaskDetails'));
+const TaskDetailsPage = lazy(() => import('@/pages/TaskDetailsPage'));
 const PrivateRoute = lazy(() => import('@/components/PrivateRoute'));
 const AddTask = lazy(() => import('@/components/AddTask'));
-const PrivateRoute = lazy(() => import('@/components/PrivateRoute'));
-
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
 const App: FC = () => {
@@ -33,7 +31,10 @@ const App: FC = () => {
           path={PagePaths.boards}
           element={<PrivateRoute element={<BoardsPage />} />}
         >
-          <Route path={`:${PagePaths.dynamicParam}`} element={<BoardDetails />}>
+          <Route
+            path={`:${PagePaths.dynamicParam}`}
+            element={<BoardDetailsPage />}
+          >
             <Route path={PagePaths.addTask} element={<AddTask />} />
             <Route path='*' element={<NotFoundPage />} />
           </Route>
@@ -44,7 +45,7 @@ const App: FC = () => {
         >
           <Route
             path={`:${PagePaths.dynamicParam}`}
-            element={<TaskDetails />}
+            element={<TaskDetailsPage />}
           />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
