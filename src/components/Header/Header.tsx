@@ -1,19 +1,13 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import Navigation from '@/components/Navigation';
 import { navLinks } from '@/constants';
 import GeneralContainer from '@/components/GeneralContainer';
 import { useAuthStore } from '@/store/store';
-import { selectIsLoggedIn, selectUser } from '@/store/auth/selectors';
+import { selectIsLoggedIn } from '@/store/auth/selectors';
 import AuthUserControls from '@/components/AuthUserControls';
 
 const Header: FC = () => {
   const isLoggedIn = useAuthStore(selectIsLoggedIn);
-  const user = useAuthStore(selectUser);
-
-  useEffect(() => {
-    console.log(isLoggedIn);
-    console.log(user);
-  }, [isLoggedIn, user]);
 
   return (
     <header className='py-4 bg-[#38b6ff]'>

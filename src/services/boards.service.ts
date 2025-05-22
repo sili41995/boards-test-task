@@ -1,9 +1,17 @@
-import { IBoard, NewBoard } from '@/types/boards.types';
+import { Boards, IBoard, NewBoard } from '@/types/boards.types';
 import HttpService from './http.service';
 
 class BoardsService extends HttpService {
   constructor() {
     super();
+  }
+
+  async getAll(): Promise<Boards> {
+    const response = await this.get<Boards>({
+      url: 'boards',
+    });
+
+    return response.data;
   }
 
   async add(data: NewBoard): Promise<IBoard> {
