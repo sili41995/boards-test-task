@@ -1,7 +1,7 @@
+import { FC } from 'react';
 import Section from '@/components/Section';
 import GeneralContainer from '@/components/GeneralContainer';
 import NotFound from '@/components/NotFound';
-import { FC } from 'react';
 
 const NotFoundPage: FC = () => {
   return (

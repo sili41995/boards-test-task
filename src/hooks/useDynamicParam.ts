@@ -1,5 +1,5 @@
-import { PagePaths } from '@/constants';
 import { useParams } from 'react-router-dom';
+import { PagePaths } from '@/constants';
 
 const useDynamicParam = () => {
   const params = useParams();

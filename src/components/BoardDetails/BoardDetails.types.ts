@@ -1,5 +1,6 @@
-import { IBoard } from '@/types/boards.types';
+import { Tasks } from '@/types/tasks.types';
 
 export interface IProps {
-  board: IBoard;
+  tasks: Tasks;
+  title: string;
 }

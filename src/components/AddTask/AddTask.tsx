@@ -1,8 +1,8 @@
 import { FC } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import GoBackLink from '@/components/GoBackLink';
 import AddTaskForm from '@/components/AddTaskForm';
 import { useDynamicParam } from '@/hooks';
-import { useOutletContext } from 'react-router-dom';
 import { IAddTaskPageContext } from '@/types/boards.types';
 import { Titles } from '@/constants';
 

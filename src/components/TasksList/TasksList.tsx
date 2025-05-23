@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { getTaskBaseType } from '@/utils';
 import { PagePaths } from '@/constants';
 import { List, Typography } from 'antd';
 import { IProps } from './TasksList.types';
 import { IPrevLocation } from '@/types/general.types';
+import LinkWithQuery from '@/components/LinkWithQuery';
 
 const TasksList: FC<IProps> = ({ tasks }) => {
   const location = useLocation();
@@ -22,12 +23,12 @@ const TasksList: FC<IProps> = ({ tasks }) => {
 
         return (
           <List.Item>
-            <Link to={linkPath} state={state} className='w-full'>
+            <LinkWithQuery to={linkPath} state={state} className='w-full'>
               <Typography.Paragraph type={type} strong={true}>
                 {title}
               </Typography.Paragraph>
               {desc && <Typography.Paragraph>{desc}</Typography.Paragraph>}
-            </Link>
+            </LinkWithQuery>
           </List.Item>
         );
       }}

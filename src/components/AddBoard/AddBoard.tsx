@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import GoBackLink from '@/components/GoBackLink';
 import AddBoardForm from '@/components/AddBoardForm';
-import { useOutletContext } from 'react-router-dom';
 import { IAddBoardPageContext } from '@/types/boards.types';
 import { Titles } from '@/constants';
 

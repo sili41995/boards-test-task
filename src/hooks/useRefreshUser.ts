@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useAuthStore } from '@/store/store';
 import {
   selectChangeIsRefreshing,
@@ -5,7 +6,6 @@ import {
   selectRefreshUser,
   selectToken,
 } from '@/store/auth/selectors';
-import { useEffect } from 'react';
 
 const useRefreshUser = (): boolean => {
   const isRefreshing = useAuthStore(selectIsRefreshing);

@@ -1,9 +1,8 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Button, Form, Input, Space } from 'antd';
-import { toasts } from '@/utils';
+import { useAddBoardForm } from '@/hooks';
 import { NewBoard } from '@/types/boards.types';
-import { AxiosError } from 'axios';
-import boardsService from '@/services/boards.service';
+import { Titles } from '@/constants';
 import { IProps } from './AddBoardForm.types';
 
 const layout = {
@@ -16,37 +15,13 @@ const tailLayout = {
 };
 
 const AddBoardForm: FC<IProps> = ({ updateBoards }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [form] = Form.useForm<NewBoard>();
-
-  const addBoard = async (data: NewBoard) => {
-    try {
-      setIsLoading(true);
-
-      const response = await boardsService.add(data);
-
-      updateBoards(response);
-      form.resetFields();
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        const errorMessage = error.response?.data.message;
-
-        toasts.errorToast(errorMessage);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const onFinish = (data: NewBoard) => {
-    addBoard(data);
-  };
+  const { form, onFinish, isLoading } = useAddBoardForm(updateBoards);
 
   return (
     <Form form={form} onFinish={onFinish} className='w-140' {...layout}>
       <Form.Item<NewBoard>
         name='title'
-        label='Title'
+        label={Titles.title}
         rules={[{ required: true }]}
       >
         <Input />
@@ -54,7 +29,7 @@ const AddBoardForm: FC<IProps> = ({ updateBoards }) => {
       <Form.Item {...tailLayout}>
         <Space>
           <Button type='primary' htmlType='submit' disabled={isLoading}>
-            Add Board
+            {Titles.addBoard}
           </Button>
         </Space>
       </Form.Item>

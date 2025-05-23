@@ -1,10 +1,10 @@
-import HttpService from './http.service';
 import {
   Credentials,
   IAuthRes,
   NewUser,
   UserId,
 } from '@/types/authStore.types';
+import HttpService from './http.service';
 
 class AuthService extends HttpService {
   constructor() {

@@ -1,9 +1,8 @@
-import { PagePaths, PageTitles } from '@/constants';
 import { MouseEvent } from 'react';
 import { Location } from 'react-router-dom';
+import { PagePaths, PageTitles } from '@/constants';
 
 // data
-
 export type StringOrNull = string | null;
 
 export type NumberOrNull = number | null;
@@ -14,11 +13,11 @@ export type AnchorClickEvent = MouseEvent<HTMLAnchorElement>;
 export type BtnClickEvent = MouseEvent<HTMLButtonElement>;
 
 // functions
+export type Func = () => void;
 
 export type OnBtnClickFunc = (e: BtnClickEvent) => void;
 
 // other
-
 export interface INavLinks {
   privateNavLinks: NavLinks;
   authNavLinks: NavLinks;

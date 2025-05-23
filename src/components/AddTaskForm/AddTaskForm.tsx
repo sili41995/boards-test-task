@@ -1,10 +1,8 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Button, Form, Input, Select, Space } from 'antd';
-import { NewTask, NewTaskWithoutBoardId } from '@/types/tasks.types';
-import { taskStatuses } from '@/constants';
-import { AxiosError } from 'axios';
-import { toasts } from '@/utils';
-import tasksService from '@/services/tasks.service';
+import { NewTaskWithoutBoardId } from '@/types/tasks.types';
+import { taskStatuses, Titles } from '@/constants';
+import { useAddTaskForm } from '@/hooks';
 import { IProps } from './AddTaskForm.types';
 
 const layout = {
@@ -17,50 +15,29 @@ const tailLayout = {
 };
 
 const AddTaskForm: FC<IProps> = ({ boardId, addBoardTask }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [form] = Form.useForm<NewTaskWithoutBoardId>();
-
-  const addBoard = async (data: NewTask) => {
-    try {
-      setIsLoading(true);
-
-      const response = await tasksService.add(data);
-
-      addBoardTask(response);
-      form.resetFields();
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        const errorMessage = error.response?.data.message;
-
-        toasts.errorToast(errorMessage);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const onFinish = (data: NewTaskWithoutBoardId) => {
-    addBoard({ ...data, boardId });
-  };
+  const { form, onFinish, isLoading } = useAddTaskForm({
+    boardId,
+    addBoardTask,
+  });
 
   return (
     <Form form={form} onFinish={onFinish} className='w-140' {...layout}>
       <Form.Item<NewTaskWithoutBoardId>
         name='title'
-        label='Title'
+        label={Titles.title}
         rules={[{ required: true }]}
       >
         <Input />
       </Form.Item>
       <Form.Item<NewTaskWithoutBoardId>
         name='desc'
-        label='Description'
+        label={Titles.desk}
         rules={[{ required: true }]}
       >
         <Input />
       </Form.Item>
-      <Form.Item<NewTaskWithoutBoardId> name='status' label='Status'>
-        <Select placeholder='Select task status' allowClear>
+      <Form.Item<NewTaskWithoutBoardId> name='status' label={Titles.status}>
+        <Select placeholder={Titles.selectStatus} allowClear>
           {taskStatuses.map(({ status, title }) => (
             <Select.Option key={status} value={status}>
               {title}
@@ -71,7 +48,7 @@ const AddTaskForm: FC<IProps> = ({ boardId, addBoardTask }) => {
       <Form.Item {...tailLayout}>
         <Space>
           <Button type='primary' htmlType='submit' disabled={isLoading}>
-            Add Task
+            {Titles.addTask}
           </Button>
         </Space>
       </Form.Item>

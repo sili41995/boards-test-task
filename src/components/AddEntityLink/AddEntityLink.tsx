@@ -1,6 +1,6 @@
-import { IPrevLocation } from '@/types/general.types';
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { IPrevLocation } from '@/types/general.types';
 import { IProps } from './AddEntityLink.types';
 
 const AddEntityLink: FC<IProps> = ({ path, title }) => {

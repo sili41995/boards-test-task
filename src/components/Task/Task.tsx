@@ -10,6 +10,7 @@ import { makeBlur } from '@/utils';
 const Task: FC<IProps> = ({ task, updateTask, onDelBtnClick }) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const editBtnTitle = isEdit ? Titles.close : Titles.edit;
+  const { id, status, title, desc } = task;
 
   const toggleIsEdit = () => {
     setIsEdit((prevState) => !prevState);
@@ -30,9 +31,16 @@ const Task: FC<IProps> = ({ task, updateTask, onDelBtnClick }) => {
           onDelBtnClick={onDelBtnClick}
         />
         {isEdit ? (
-          <EditTaskForm updateTask={updateTask} />
+          <EditTaskForm
+            updateTask={updateTask}
+            desc={desc}
+            status={status}
+            title={title}
+            id={id}
+            toggleIsEdit={toggleIsEdit}
+          />
         ) : (
-          <TaskDetails task={task} />
+          <TaskDetails desc={desc} status={status} title={title} />
         )}
       </div>
     </>

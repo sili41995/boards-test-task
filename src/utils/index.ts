@@ -5,3 +5,6 @@ export { default as getAuthStoreItem } from './getAuthStoreItem';
 export { default as setAuthStoreItem } from './setAuthStoreItem';
 export { default as removeAuthStoreItem } from './removeAuthStoreItem';
 export { default as getTaskBaseType } from './getTaskBaseType';
+export { default as getTaskStatusData } from './getTaskStatusData';
+export { default as getStatusLabelColor } from './getStatusLabelColor';
+export { default as filterTasksByStatus } from './filterTasksByStatus';

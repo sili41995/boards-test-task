@@ -1,5 +1,5 @@
-import { PagePaths } from '@/constants';
 import { useLocation } from 'react-router-dom';
+import { PagePaths } from '@/constants';
 
 const useIsBoardDetailsPage = (): boolean => {
   const { pathname } = useLocation();

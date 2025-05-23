@@ -4,9 +4,7 @@ import { IProps } from './BoardDetails.types';
 import TasksList from '@/components/TasksList';
 import GoBackLink from '@/components/GoBackLink';
 
-const BoardDetails: FC<IProps> = ({ board }) => {
-  const { tasks, title } = board;
-
+const BoardDetails: FC<IProps> = ({ tasks, title }) => {
   return (
     <div className='flex flex-col gap-5'>
       <GoBackLink />

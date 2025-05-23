@@ -1,4 +1,3 @@
-import initialState from './initialState';
 import { AxiosError } from 'axios';
 import {
   IAuthOperationProps,
@@ -8,7 +7,8 @@ import {
   UserId,
   IChangeIsRefreshingProps,
 } from '@/types/authStore.types';
-import authService from '@/services/auth.service';
+import { authService } from '@/services';
+import initialState from './initialState';
 import operationWrapper from './operationWrapper';
 
 const signUpOperation = async ({

@@ -1,16 +1,17 @@
 import { TaskStatuses } from '@/types/tasks.types';
+import Titles from './titles';
 
 const taskStatuses: TaskStatuses = [
   {
-    title: 'Todo',
+    title: Titles.todo,
     status: 'todo',
   },
   {
-    title: 'In progress',
+    title: Titles.inProgress,
     status: 'in_progress',
   },
   {
-    title: 'Done',
+    title: Titles.done,
     status: 'done',
   },
 ];

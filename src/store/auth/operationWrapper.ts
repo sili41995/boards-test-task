@@ -1,6 +1,6 @@
-import initialState from './initialState';
 import { AxiosError } from 'axios';
 import { GetAuthStateFunc, SetAuthStateFunc } from '@/types/authStore.types';
+import initialState from './initialState';
 
 const operationWrapper = <T, K>(
   operation: (data: {

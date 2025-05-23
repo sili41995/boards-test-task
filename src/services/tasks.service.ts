@@ -1,4 +1,11 @@
-import { ITask, NewTask, Tasks, TaskId } from '@/types/tasks.types';
+import {
+  ITask,
+  NewTask,
+  Tasks,
+  TaskId,
+  IUpdateTaskProps,
+  NewTaskWithoutBoardId,
+} from '@/types/tasks.types';
 import HttpService from './http.service';
 
 class TasksService extends HttpService {
@@ -31,7 +38,16 @@ class TasksService extends HttpService {
     return response.data;
   }
 
-  async remove(id: number): Promise<TaskId> {
+  async updateById({ data, id }: IUpdateTaskProps): Promise<ITask> {
+    const response = await this.put<ITask, NewTaskWithoutBoardId>({
+      url: `tasks/${id}`,
+      data,
+    });
+
+    return response.data;
+  }
+
+  async deleteById(id: number): Promise<TaskId> {
     const response = await this.delete<TaskId>({
       url: `tasks/${id}`,
     });

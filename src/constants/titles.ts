@@ -3,6 +3,17 @@ const enum Titles {
   close = 'Close',
   edit = 'Edit',
   delete = 'Delete',
+  unknown = 'Unknown',
+  todo = 'Todo',
+  inProgress = 'In progress',
+  done = 'Done',
+  all = 'All',
+  addBoard = 'Add Board',
+  addTask = 'Add Task',
+  title = 'Title',
+  desk = 'Description',
+  selectStatus = 'Select task status',
+  status = 'Status',
 }
 
 export default Titles;

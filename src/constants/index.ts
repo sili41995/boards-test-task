@@ -6,3 +6,5 @@ export { default as PageTitles } from './pageTitles';
 export { default as regExp } from './regExp';
 export { default as taskStatuses } from './taskStatuses';
 export { default as Titles } from './titles';
+export { default as taskStatusesFilters } from './taskStatusesFilters';
+export { default as SearchParamsKeys } from './searchParamsKeys';

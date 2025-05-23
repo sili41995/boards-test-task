@@ -23,3 +23,9 @@ export interface IAddTaskPageContext {
 export type BoardAction =
   | { type: 'addTask'; payload: ITask }
   | { type: 'addBoard'; payload: IBoard };
+
+export type BoardOrNull = IBoard | null;
+
+export type BoardsOrNull = Boards | null;
+
+export type SetNewBoard = (data: NewBoard) => void;
