@@ -1,6 +1,6 @@
 import { FC, lazy } from 'react';
-import { PagePaths } from '@/constants';
 import { Route, Routes } from 'react-router-dom';
+import { PagePaths } from '@/constants';
 import SharedLayout from '@/components/SharedLayout';
 import PublicRoute from '@/components/PublicRoute';
 import Loader from '@/components/Loader';

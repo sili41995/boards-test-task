@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
+# 📦 React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект на основе **React**, написанный на **TypeScript**, с использованием **Vite**, **TailwindCSS**, **Ant Design**, **Zustand**, **Axios** и **React Router DOM**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Подготовка к разработке
 
-## Expanding the ESLint configuration
+1. Убедитесь, что на вашем компьютере установлена LTS-версия Node.js. Выполните команду `node -v` в терминале. Если терминал отображает версию (например, v20.10.0), значит Node.js установлен. [Скачать и установить Node.js](https://nodejs.org/en/), если необходимо.
+2. Клонируйте данный репозиторий.
+3. Откройте проект в VSCode и запустите терминал.
+4. Установите основные зависимости проекта командой `npm install`.
+5. Запустите режим разработки с помощью команды `npm run dev`.
+6. Перейдите в браузере по адресу [http://localhost:5173](http://localhost:5173). Эта страница будет автоматически перезагружаться при сохранении изменений в файлах проекта.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Технологии
 
-- Configure the top-level `parserOptions` property like this:
+- **React** — UI библиотека
+- **TypeScript** — строгая типизация
+- **Vite** — современный инструмент сборки
+- **TailwindCSS** — утилитарный CSS-фреймворк
+- **Ant Design (antd)** — готовые UI-компоненты
+- **Axios** — HTTP клиент
+- **React Router DOM** — маршрутизация
+- **Zustand** — менеджер состояния
+- **ESLint** — анализатор кода
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+---
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 📁 Структура проекта
+
+my-app/
+├── public/ # Публичные файлы (favicon, index.html и т.п.)
+├── src/
+│ ├── components/ # Переиспользуемые UI-компоненты
+│ ├── constants/ # Константы, enum'ы и конфигурации
+│ ├── hooks/ # Кастомные React хуки
+│ ├── pages/ # Страницы приложения (роуты)
+│ ├── services/ # Логика работы с API (axios)
+│ ├── store/ # Zustand хранилище
+│ ├── styles/ # Tailwind и глобальные стили
+│ ├── types/ # Общие типы и интерфейсы
+│ └── utils/ # Вспомогательные функции
+├── tailwind.config.js # Конфигурация TailwindCSS
+├── tsconfig.json # Конфигурация TypeScript
+├── vite.config.ts # Конфигурация Vite
+├── .eslintrc # Настройки линтинга
+├── package.json # Скрипты и зависимости
+└── README.md
+
+## 📦 Скрипты
+
+```bash
+# Запуск dev-сервера
+npm run dev
+
+# Сборка проекта
+npm run build
+
+# Предпросмотр production-сборки
+npm run preview
+
+# Линтинг TypeScript и TSX файлов
+npm run lint
