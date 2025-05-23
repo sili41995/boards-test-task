@@ -29,7 +29,24 @@
 
 ## 📁 Структура проекта
 
-<pre><code> my-app/ ├── public/ # Публичные файлы (favicon, index.html и т.п.) ├── src/ │ ├── components/ # Переиспользуемые UI-компоненты │ ├── constants/ # Константы, enum'ы и конфигурации │ ├── hooks/ # Кастомные React хуки │ ├── pages/ # Страницы приложения (роуты) │ ├── services/ # Логика работы с API (axios) │ ├── store/ # Zustand хранилище │ ├── styles/ # Tailwind и глобальные стили │ ├── types/ # Общие типы и интерфейсы │ └── utils/ # Вспомогательные функции ├── tailwind.config.js # Конфигурация TailwindCSS ├── tsconfig.json # Конфигурация TypeScript ├── vite.config.ts # Конфигурация Vite ├── .eslintrc # Настройки линтинга ├── package.json # Скрипты и зависимости └── README.md </code></pre>
+- my-app/
+- ├── public/ # Публичные файлы (favicon, index.html и т.п.)
+- ├── src/
+- │ ├── components/ # Переиспользуемые UI-компоненты
+- │ ├── constants/ # Константы, enum'ы и конфигурации
+- │ ├── hooks/ # Кастомные React хуки
+- │ ├── pages/ # Страницы приложения (роуты)
+- │ ├── services/ # Логика работы с API (axios)
+- │ ├── store/ # Zustand хранилище
+- │ ├── styles/ # Tailwind и глобальные стили
+- │ ├── types/ # Общие типы и интерфейсы
+- │ └── utils/ # Вспомогательные функции
+- ├── tailwind.config.js # Конфигурация TailwindCSS
+- ├── tsconfig.json # Конфигурация TypeScript
+- ├── vite.config.ts # Конфигурация Vite
+- ├── .eslintrc # Настройки линтинга
+- ├── package.json # Скрипты и зависимости
+- └── README.md
 
 ## 📦 Скрипты
 
