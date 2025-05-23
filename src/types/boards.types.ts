@@ -1,4 +1,4 @@
-import { Tasks } from './tasks.types';
+import { ITask, SetTask, Tasks } from './tasks.types';
 
 export interface IBoard {
   id: number;
@@ -15,3 +15,11 @@ export type SetBoards = (data: IBoard) => void;
 export interface IAddBoardPageContext {
   updateBoards: SetBoards;
 }
+
+export interface IAddTaskPageContext {
+  addBoardTask: SetTask;
+}
+
+export type BoardAction =
+  | { type: 'addTask'; payload: ITask }
+  | { type: 'addBoard'; payload: IBoard };

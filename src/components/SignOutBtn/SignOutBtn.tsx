@@ -30,7 +30,7 @@ const SignOutBtn: FC = () => {
 
   return (
     <button
-      className='block h-full min-w-[100px] px-3 py-3 bg-[#ff9192] rounded-md border-none text-white text-center font-sans text-base font-medium transition-colors duration-400  hover:bg-[#d3232f] focus:bg-white'
+      className='block h-full min-w-[100px] px-3 py-3 bg-[#ff9192] rounded-md border-none text-white text-center font-sans text-base font-medium transition-colors duration-400  hover:bg-[#d3232f] focus:bg-[#d3232f]'
       type='button'
       onClick={onSignOutBtnClick}
     >

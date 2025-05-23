@@ -4,3 +4,4 @@ export { default as localStorage } from './localStorage';
 export { default as getAuthStoreItem } from './getAuthStoreItem';
 export { default as setAuthStoreItem } from './setAuthStoreItem';
 export { default as removeAuthStoreItem } from './removeAuthStoreItem';
+export { default as getTaskBaseType } from './getTaskBaseType';

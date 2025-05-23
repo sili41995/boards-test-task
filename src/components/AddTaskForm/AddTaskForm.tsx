@@ -16,7 +16,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-const AddTaskForm: FC<IProps> = ({ boardId }) => {
+const AddTaskForm: FC<IProps> = ({ boardId, addBoardTask }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [form] = Form.useForm<NewTaskWithoutBoardId>();
 
@@ -26,7 +26,7 @@ const AddTaskForm: FC<IProps> = ({ boardId }) => {
 
       const response = await tasksService.add(data);
 
-      //   updateBoards(response);
+      addBoardTask(response);
       form.resetFields();
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -71,7 +71,7 @@ const AddTaskForm: FC<IProps> = ({ boardId }) => {
       <Form.Item {...tailLayout}>
         <Space>
           <Button type='primary' htmlType='submit' disabled={isLoading}>
-            Add Board
+            Add Task
           </Button>
         </Space>
       </Form.Item>

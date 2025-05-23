@@ -13,6 +13,10 @@ export type AnchorClickEvent = MouseEvent<HTMLAnchorElement>;
 
 export type BtnClickEvent = MouseEvent<HTMLButtonElement>;
 
+// functions
+
+export type OnBtnClickFunc = (e: BtnClickEvent) => void;
+
 // other
 
 export interface INavLinks {

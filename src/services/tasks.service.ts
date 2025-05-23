@@ -1,4 +1,4 @@
-import { ITask, NewTask, Tasks } from '@/types/tasks.types';
+import { ITask, NewTask, Tasks, TaskId } from '@/types/tasks.types';
 import HttpService from './http.service';
 
 class TasksService extends HttpService {
@@ -14,10 +14,26 @@ class TasksService extends HttpService {
     return response.data;
   }
 
+  async getById(id: number): Promise<ITask> {
+    const response = await this.get<ITask>({
+      url: `tasks/${id}`,
+    });
+
+    return response.data;
+  }
+
   async add(data: NewTask): Promise<ITask> {
     const response = await this.post<ITask, NewTask>({
       url: 'tasks',
       data,
+    });
+
+    return response.data;
+  }
+
+  async remove(id: number): Promise<TaskId> {
+    const response = await this.delete<TaskId>({
+      url: `tasks/${id}`,
     });
 
     return response.data;

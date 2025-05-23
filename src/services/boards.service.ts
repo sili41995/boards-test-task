@@ -14,6 +14,14 @@ class BoardsService extends HttpService {
     return response.data;
   }
 
+  async getById(id: number): Promise<IBoard> {
+    const response = await this.get<IBoard>({
+      url: `boards/${id}`,
+    });
+
+    return response.data;
+  }
+
   async add(data: NewBoard): Promise<IBoard> {
     const response = await this.post<IBoard, NewBoard>({
       url: 'boards',

@@ -54,12 +54,11 @@ const App: FC = () => {
         <Route
           path={PagePaths.tasks}
           element={<PrivateRoute element={<TasksPage />} />}
-        >
-          <Route
-            path={`:${PagePaths.dynamicParam}`}
-            element={<TaskDetailsPage />}
-          />
-        </Route>
+        />
+        <Route
+          path={`${PagePaths.tasks}/:${PagePaths.dynamicParam}`}
+          element={<TaskDetailsPage />}
+        />
         <Route path='*' element={<NotFoundPage />} />
       </Route>
     </Routes>
