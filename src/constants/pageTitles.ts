@@ -5,6 +5,7 @@ const enum PageTitles {
   boards = 'Boards',
   addTask = 'Add Task',
   addBoard = 'Add Board',
+  notFound = 'Not Found',
 }
 
 export default PageTitles;

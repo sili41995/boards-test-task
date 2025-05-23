@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import SignUpForm from '@/components/SignUpForm';
-import { PagePaths } from '@/constants';
+import { Messages, PagePaths } from '@/constants';
 import PageTitle from '@/components/PageTitle';
 import AuthFormMessage from '@/components/AuthFormMessage';
 import { PageTitles } from '@/constants';
@@ -13,7 +13,7 @@ const SignUp: FC = () => {
       <AuthFormMessage
         pageTitle={PageTitles.signIn}
         pageLink={PagePaths.signIn}
-        message='if you have an account'
+        message={Messages.ifAccountAbsent}
       />
     </div>
   );

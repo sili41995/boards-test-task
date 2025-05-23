@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { IProps } from './TaskControls.types';
 import { Titles } from '@/constants';
+import { IProps } from './TaskControls.types';
 
 const TaskControls: FC<IProps> = ({
   editBtnTitle,

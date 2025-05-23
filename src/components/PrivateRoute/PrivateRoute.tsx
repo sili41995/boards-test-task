@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { IProps } from './PrivateRoute.types';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '@/store/store';
 import { selectIsLoggedIn, selectIsRefreshing } from '@/store/auth/selectors';
-import { Navigate, useLocation } from 'react-router-dom';
 import { PagePaths } from '@/constants';
+import { IProps } from './PrivateRoute.types';
 
 const PrivateRoute: FC<IProps> = ({ element }) => {
   const isLoggedIn = useAuthStore(selectIsLoggedIn);

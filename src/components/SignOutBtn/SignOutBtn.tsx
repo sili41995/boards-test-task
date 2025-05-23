@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { PagePaths } from '@/constants';
+import { useNavigate } from 'react-router-dom';
+import { PagePaths, Titles } from '@/constants';
 import { selectSignOut } from '@/store/auth/selectors';
 import { useAuthStore } from '@/store/store';
 import { BtnClickEvent } from '@/types/general.types';
 import { makeBlur, toasts } from '@/utils';
-import { useNavigate } from 'react-router-dom';
 
 const SignOutBtn: FC = () => {
   const signOut = useAuthStore(selectSignOut);
@@ -34,7 +34,7 @@ const SignOutBtn: FC = () => {
       type='button'
       onClick={onSignOutBtnClick}
     >
-      Sign Out
+      {Titles.signOut}
     </button>
   );
 };

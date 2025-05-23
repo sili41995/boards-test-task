@@ -10,3 +10,4 @@ export { default as useTaskDetailsPage } from './useTaskDetailsPage';
 export { default as useTasksPage } from './useTasksPage';
 export { default as useAddBoardForm } from './useAddBoardForm';
 export { default as useAddTaskForm } from './useAddTaskForm';
+export { default as useEditTaskForm } from './useEditTaskForm';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { IProps } from './BoardTasksList.types';
 import { List } from 'antd';
+import { IProps } from './BoardTasksList.types';
 
 const BoardTasksList: FC<IProps> = ({ tasks }) => {
   return (

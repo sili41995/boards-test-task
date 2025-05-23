@@ -1,10 +1,8 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Button, Form, Input, Select, Space } from 'antd';
-import {tasksService} from '@/services';
-import { IUpdateTaskProps, NewTaskWithoutBoardId } from '@/types/tasks.types';
-import { AxiosError } from 'axios';
-import { toasts } from '@/utils';
-import { taskStatuses } from '@/constants';
+import { useEditTaskForm } from '@/hooks';
+import { taskStatuses, Titles } from '@/constants';
+import { NewTaskWithoutBoardId } from '@/types/tasks.types';
 import { IProps } from './EditTaskForm.types';
 
 const layout = {
@@ -24,37 +22,17 @@ const EditTaskForm: FC<IProps> = ({
   status,
   updateTask,
 }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [form] = Form.useForm<NewTaskWithoutBoardId>();
-
-  const updateTaskById = async ({ data, id }: IUpdateTaskProps) => {
-    try {
-      setIsLoading(true);
-
-      const result = await tasksService.updateById({ data, id });
-
-      updateTask(result);
-      toggleIsEdit();
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        const errorMessage = error.response?.data.message;
-
-        toasts.errorToast(errorMessage);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const onFinish = (data: NewTaskWithoutBoardId) => {
-    updateTaskById({ data, id });
-  };
+  const { form, onFinish, isLoading } = useEditTaskForm({
+    updateTask,
+    toggleIsEdit,
+    id,
+  });
 
   return (
     <Form form={form} onFinish={onFinish} className='w-140' {...layout}>
       <Form.Item<NewTaskWithoutBoardId>
         name='title'
-        label='Title'
+        label={Titles.title}
         rules={[{ required: true }]}
         initialValue={title}
       >
@@ -62,7 +40,7 @@ const EditTaskForm: FC<IProps> = ({
       </Form.Item>
       <Form.Item<NewTaskWithoutBoardId>
         name='desc'
-        label='Description'
+        label={Titles.desk}
         rules={[{ required: true }]}
         initialValue={desc}
       >
@@ -70,10 +48,10 @@ const EditTaskForm: FC<IProps> = ({
       </Form.Item>
       <Form.Item<NewTaskWithoutBoardId>
         name='status'
-        label='Status'
+        label={Titles.status}
         initialValue={status}
       >
-        <Select placeholder='Select task status' allowClear>
+        <Select placeholder={Titles.selectStatus} allowClear>
           {taskStatuses.map(({ status, title }) => (
             <Select.Option key={status} value={status}>
               {title}
@@ -84,7 +62,7 @@ const EditTaskForm: FC<IProps> = ({
       <Form.Item {...tailLayout}>
         <Space>
           <Button type='primary' htmlType='submit' disabled={isLoading}>
-            Update Task
+            {Titles.updTask}
           </Button>
         </Space>
       </Form.Item>

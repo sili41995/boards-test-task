@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useLocation } from 'react-router-dom';
+import { List, Typography } from 'antd';
 import { getTaskBaseType } from '@/utils';
 import { PagePaths } from '@/constants';
-import { List, Typography } from 'antd';
-import { IProps } from './TasksList.types';
 import { IPrevLocation } from '@/types/general.types';
 import LinkWithQuery from '@/components/LinkWithQuery';
+import { IProps } from './TasksList.types';
 
 const TasksList: FC<IProps> = ({ tasks }) => {
   const location = useLocation();

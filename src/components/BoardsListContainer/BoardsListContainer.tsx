@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { Empty } from 'antd';
 import BoardsList from '@/components/BoardsList';
 import { IProps } from './BoardsListContainer.types';
-import { Empty } from 'antd';
 
 const BoardsListContainer: FC<IProps> = ({ boards }) => {
   const isEmptyList = !boards.length;

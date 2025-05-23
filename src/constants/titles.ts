@@ -14,6 +14,10 @@ const enum Titles {
   desk = 'Description',
   selectStatus = 'Select task status',
   status = 'Status',
+  updTask = 'Update Task',
+  password = 'Password',
+  email = 'Email',
+  signOut = 'Sign Out',
 }
 
 export default Titles;

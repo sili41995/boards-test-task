@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { IProps } from './BoardsList.types';
-import { Card, List } from 'antd';
 import { Link } from 'react-router-dom';
+import { Card, List } from 'antd';
 import BoardTasksList from '@/components/BoardTasksList';
+import { IProps } from './BoardsList.types';
 
 const BoardsList: FC<IProps> = ({ boards }) => {
   return (

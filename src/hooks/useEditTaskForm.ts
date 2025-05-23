@@ -1,26 +1,27 @@
 import { useState } from 'react';
-import { AxiosError } from 'axios';
-import { NewTask, NewTaskWithoutBoardId } from '@/types/tasks.types';
-import { toasts } from '@/utils';
-import { tasksService } from '@/services';
-import { IUseTaskForm, IUseAddTaskFormProps } from '@/types/hooks.types';
 import { Form } from 'antd';
+import { AxiosError } from 'axios';
+import { tasksService } from '@/services';
+import { IUpdateTaskProps, NewTaskWithoutBoardId } from '@/types/tasks.types';
+import { toasts } from '@/utils';
+import { IUseEditTaskFormProps, IUseTaskForm } from '@/types/hooks.types';
 
-const useAddTaskForm = ({
-  boardId,
-  addBoardTask,
-}: IUseAddTaskFormProps): IUseTaskForm => {
+const useEditTaskForm = ({
+  updateTask,
+  toggleIsEdit,
+  id,
+}: IUseEditTaskFormProps): IUseTaskForm => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [form] = Form.useForm<NewTaskWithoutBoardId>();
 
-  const addTask = async (data: NewTask) => {
+  const updateTaskById = async ({ data, id }: IUpdateTaskProps) => {
     try {
       setIsLoading(true);
 
-      const response = await tasksService.add(data);
+      const result = await tasksService.updateById({ data, id });
 
-      addBoardTask(response);
-      form.resetFields();
+      updateTask(result);
+      toggleIsEdit();
     } catch (error) {
       if (error instanceof AxiosError) {
         const errorMessage = error.response?.data.message;
@@ -33,10 +34,10 @@ const useAddTaskForm = ({
   };
 
   const onFinish = (data: NewTaskWithoutBoardId) => {
-    addTask({ ...data, boardId });
+    updateTaskById({ data, id });
   };
 
   return { form, onFinish, isLoading };
 };
 
-export default useAddTaskForm;
+export default useEditTaskForm;

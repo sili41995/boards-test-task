@@ -1,7 +1,7 @@
-import { PagePaths, Titles } from '@/constants';
-import { ILocation } from '@/types/general.types';
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { PagePaths, Titles } from '@/constants';
+import { ILocation } from '@/types/general.types';
 import { IProps } from './GoBackLink.types';
 
 const GoBackLink: FC<IProps> = ({ title = Titles.goBack }) => {

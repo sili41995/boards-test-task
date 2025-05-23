@@ -15,7 +15,7 @@ import {
   TaskOrNull,
   TasksOrNull,
 } from './tasks.types';
-import { OnBtnClickFunc } from './general.types';
+import { Func, OnBtnClickFunc } from './general.types';
 
 export interface IUpdateSearchParamsProps {
   key: string;
@@ -63,8 +63,14 @@ export interface IUseAddTaskFormProps {
   addBoardTask: SetTask;
 }
 
-export interface IUseAddTaskForm {
+export interface IUseTaskForm {
   form: FormInstance<NewTaskWithoutBoardId>;
   onFinish: SetNewTaskWithoutBoardId;
   isLoading: boolean;
+}
+
+export interface IUseEditTaskFormProps {
+  updateTask: SetTask;
+  toggleIsEdit: Func;
+  id: number;
 }

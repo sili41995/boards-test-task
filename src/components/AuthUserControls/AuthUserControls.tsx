@@ -1,16 +1,16 @@
 import { FC } from 'react';
+import { useLocation } from 'react-router-dom';
 import SignOutBtn from '@/components/SignOutBtn';
 import { useIsBoardDetailsPage, useIsBoardsPage } from '@/hooks';
 import AddEntityLink from '@/components/AddEntityLink';
 import { PagePaths, PageTitles } from '@/constants';
-import { useLocation } from 'react-router-dom';
+import { getAdditionalSlash } from '@/utils';
 
 const AuthUserControls: FC = () => {
   const { pathname } = useLocation();
   const isBoardsPage = useIsBoardsPage();
   const isBoardDetailsPage = useIsBoardDetailsPage();
-  const isTrailingSlash = pathname.endsWith('/');
-  const additionalSlash = isTrailingSlash ? '' : '/';
+  const additionalSlash = getAdditionalSlash(pathname);
 
   const addTaskPath = `${pathname}${additionalSlash}${PagePaths.addTask}`;
   const addBoardPath = `${pathname}${additionalSlash}${PagePaths.addBoard}`;

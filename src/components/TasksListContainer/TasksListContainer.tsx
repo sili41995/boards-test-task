@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import TasksList from '@/components/TasksList';
-import { IProps } from './TasksListContainer.types';
 import { Empty } from 'antd';
+import TasksList from '@/components/TasksList';
 import { taskStatusesFilters } from '@/constants';
 import TaskListFilterByStatuses from '@/components/TaskListFilterByStatuses';
 import { useFilteredTasks } from '@/hooks';
+import { IProps } from './TasksListContainer.types';
 
 const TasksListContainer: FC<IProps> = ({ tasks }) => {
   const filteredTasks = useFilteredTasks(tasks);

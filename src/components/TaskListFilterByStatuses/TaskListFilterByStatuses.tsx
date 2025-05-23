@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { IProps } from './TaskListFilterByStatuses.types';
 import { Radio, RadioChangeEvent } from 'antd';
 import { useSetSearchParams } from '@/hooks';
 import { SearchParamsKeys } from '@/constants';
+import { IProps } from './TaskListFilterByStatuses.types';
+
 const TaskListFilterByStatuses: FC<IProps> = ({ statuses }) => {
   const { updateSearchParams, searchParams } = useSetSearchParams();
   const status = searchParams.get(SearchParamsKeys.status) ?? '';

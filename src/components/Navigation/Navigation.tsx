@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { IProps } from './Navigation.types';
 import { AnchorClickEvent } from '@/types/general.types';
 import { makeBlur } from '@/utils';
+import { Symbols } from '@/constants';
+import { IProps } from './Navigation.types';
 
 const Navigation: FC<IProps> = ({ navLinks }) => {
   const onLinkClick = (e: AnchorClickEvent) => {
@@ -22,7 +23,7 @@ const Navigation: FC<IProps> = ({ navLinks }) => {
                   isActive
                     ? 'text-[#38b6ff] bg-white'
                     : 'text-white bg-transparent',
-                ].join(' ')
+                ].join(Symbols.space)
               }
               onClick={onLinkClick}
             >

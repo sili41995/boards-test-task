@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Button, Form, Input, Space } from 'antd';
-import { Credentials, } from '@/types/authStore.types';
-import { regExp } from '@/constants';
+import { Credentials } from '@/types/authStore.types';
+import { regExp, Titles } from '@/constants';
 import { useAuthStore } from '@/store/store';
 import { selectIsLoading, selectSignIn } from '@/store/auth/selectors';
 import { toasts } from '@/utils';
@@ -32,14 +32,14 @@ const SignInForm: FC = () => {
     <Form form={form} onFinish={onFinish} className='w-140' {...layout}>
       <Form.Item<Credentials>
         name='email'
-        label='Email'
+        label={Titles.email}
         rules={[{ required: true, pattern: regExp.email }]}
       >
         <Input />
       </Form.Item>
       <Form.Item<Credentials>
         name='password'
-        label='Password'
+        label={Titles.password}
         rules={[{ required: true }]}
       >
         <Input.Password />

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { IProps } from './PublicRoute.types';
 import { Messages, PagePaths } from '@/constants';
 import { useAuthStore } from '@/store/store';
 import { selectIsLoggedIn } from '@/store/auth/selectors';
 import { toasts } from '@/utils';
+import { IProps } from './PublicRoute.types';
 
 export const PublicRoute = ({ element, restricted = false }: IProps) => {
   const isLoggedIn = useAuthStore(selectIsLoggedIn);
